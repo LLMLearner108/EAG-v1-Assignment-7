@@ -1,0 +1,17 @@
+[project]
+name = "eag-v1-assignment-7"
+version = "0.1.0"
+description = "Building a RAG agent to talk and get information from my invoices"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "faiss-cpu>=1.10.0",
+    "mcp>=1.6.0",
+    "ollama>=0.4.8",
+    "openai>=1.75.0",
+    "pydantic>=2.11.3",
+    "python-dotenv>=1.1.0",
+    "requests>=2.32.3",
+    "rich>=14.0.0",
+    "typer-cli>=0.15.2",
+]
