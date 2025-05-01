@@ -12,6 +12,13 @@ articles = soup.find_all("a", {"data-type": "match-reports"})
 article_links = [x["href"] for x in articles]
 
 for article in article_links:
+
+    article_name = Path(article).name
+
+    # Skip if the data is already scraped for a particular match
+    if Path(f"data/{article_name}.txt").exists():
+        continue
+
     # Sleep for 2 seconds
     time.sleep(2)
 
@@ -26,11 +33,10 @@ for article in article_links:
 
     paras = relevant_section.find_all("p")
 
-    para_texts = [x.text for x in paras]
+    # The first element contains the whole article within which the same article is nested, hence skip this one
+    para_texts = [x.text for x in paras][1:]
 
     article_text = "\n".join(para_texts)
-
-    article_name = Path(article).name
 
     with open(f"data/{article_name}.txt", "w") as f:
         f.writelines(article_text)

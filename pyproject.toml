@@ -5,7 +5,9 @@ description = "Building a RAG agent to talk and get information from my invoices
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "beautifulsoup4>=4.13.4",
     "faiss-cpu>=1.10.0",
+    "markitdown>=0.1.1",
     "mcp>=1.6.0",
     "ollama>=0.4.8",
     "openai>=1.75.0",
